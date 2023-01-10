@@ -1,7 +1,7 @@
 #!/bin/bash
 REPOSITORY=/home/ubuntu/build
 
-cd $REPOSITORY/project
+cd $REPOSITORY/project/dist/src
 
-npm i
+node main.js
 
