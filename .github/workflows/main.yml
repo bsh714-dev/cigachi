@@ -1,9 +1,9 @@
 name: Our CI
 on:
   push:
-    branches: [main]
+    branches: [dev]
   pull_request:
-    branches: [main]
+    branches: [dev]
 env:
   AWS_REGION: ap-northeast-2
   S3_BUCKET_NAME: tiltil
@@ -18,7 +18,7 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 16.14.2
-      - run: npm i
+      - run: /src/npm i
 
       
       
