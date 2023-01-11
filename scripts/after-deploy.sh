@@ -2,9 +2,8 @@
 REPOSITORY=/home/ubuntu/build
 
 cd $REPOSITORY/project
+ls
 
 npm i
-
-pm2 delete 0
 
 npm run start:prod
