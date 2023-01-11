@@ -20,7 +20,13 @@ jobs:
           node-version: 16.14.2
       - run: npm i
         working-directory: ./project
-
+      
+      - name: Create .env file
+        run: |
+          touch .env
+          echo API_KEY=${{ secrets.DOT_ENV }} >> .env
+          cat .env
+          working-directory: ./project
       
       
       - name: Configure AWS credentials
