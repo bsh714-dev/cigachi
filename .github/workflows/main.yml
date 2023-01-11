@@ -19,9 +19,7 @@ jobs:
         with:
           node-version: 16.14.2
       - run: npm i
-        working-directory: ./project
-
-      
+        working-directory: ./project  
       
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
