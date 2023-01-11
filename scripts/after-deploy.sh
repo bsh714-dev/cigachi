@@ -2,7 +2,7 @@
 REPOSITORY=/home/ubuntu/build
 
 cd $REPOSITORY/project
-cd /project
-sudo npm i
-sudo pm2 0 delete
-sudo npm run start:prod
+ls
+npm i
+pm2 delete 0
+NODE_ENV=production sudo pm2 start dist/src/main.js
