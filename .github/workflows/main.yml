@@ -19,14 +19,7 @@ jobs:
         with:
           node-version: 16.14.2
       - run: npm i
-        working-directory: ./project
-      
-      - name: Create .env file
-        run: |
-          cd ./project
-          touch .env
-          echo ${{ secrets.DOT_ENV }} >> .env
-          cat .env      
+        working-directory: ./project  
       
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
