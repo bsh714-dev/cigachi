@@ -6,9 +6,9 @@ on:
     branches: [main]
 env:
   AWS_REGION: ap-northeast-2
-  S3_BUCKET_NAME: tiltil
-  CODE_DEPLOY_APPLICATION_NAME: tiltil-code-deploy
-  CODE_DEPLOY_DEPLOYMENT_GROUP_NAME: til-server
+  S3_BUCKET_NAME: gachimindbucket
+  CODE_DEPLOY_APPLICATION_NAME: code-deploy
+  CODE_DEPLOY_DEPLOYMENT_GROUP_NAME: tiltil-code-deploy
 
 jobs:
   build:
@@ -19,16 +19,16 @@ jobs:
         with:
           node-version: 16.14.2
       - run: npm i
-        working-directory: ./project  
-      
+        working-directory: ./project
+
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
-          aws-access-key-id: ${{ secrets.ACCESS_KEY }} 
-          aws-secret-access-key: ${{ secrets.SECRET_KEY }} 
-          aws-region: ${{ secrets.AWS_REGION }} 
+          aws-access-key-id: ${{ secrets.ACCESS_KEY }}
+          aws-secret-access-key: ${{ secrets.SECRET_KEY }}
+          aws-region: ${{ secrets.AWS_REGION }}
 
-    # (5) 빌드 결과물을 S3 버킷에 업로드
+      # (5) 빌드 결과물을 S3 버킷에 업로드
       - name: Upload to AWS S3
         run: |
           aws deploy push \
